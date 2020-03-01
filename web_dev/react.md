@@ -97,6 +97,7 @@ componentWillUnmount()
   - seperate concerns: allows organizing effects around features, not life cycles
   - only call Hooks from React function components
 - should not be used inside loops, conditions, or nested functions
+  - when multiple State or Effect Hooks in a single component, React relies on the order in which Hooks are called
   - ensures hooks are called in the same order across re-render
   - necessary for react to preserve state of hooks
 - only call hooks from functional components or custom hooks
