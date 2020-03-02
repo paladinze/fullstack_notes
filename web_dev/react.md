@@ -42,6 +42,17 @@ componentDidUpdate()
 componentWillUnmount()
 ```
 
+## composition over inheritance
+- use composition to reuse code between components
+- containment
+  - use props.children to render component contained inside another component
+- specialization
+  - think a more specific component as a special case of a generic component
+  - the more sepecific component render generic component and configures it with props
+- none-UI logic code reuse
+  - use js module
+  - component import things from module, but doesn't extend it
+
 ## 受控组件(Controlled Component)与非受控组件(Uncontrolled Component)的区别
 - 受控组件由 react 侦测改变和管理 value
 - 非受控组件由 dom 自己管理 value
@@ -52,6 +63,14 @@ componentWillUnmount()
 ## React 中 setState 什么时候是同步的，什么时候是异步的？
 - 在 合成事件 和 生命周期钩子(除 componentDidUpdate) 中，setState 是"异步"的
 - 在 原生事件 和 setTimeout 中，setState 是同步的，可以马上获取更新后的值
+
+## React + Redux (MVVM)
+- Model (M): Redux
+  - global state management
+- View (V): JSX + CSS
+  - how things look
+- View-Model (VM): Component
+  - manages simple state, passes data directly onto View
 
 ## Redux 使用流程
 - redux 是 react 应用的状态管理机制
@@ -80,14 +99,6 @@ componentWillUnmount()
 ## redux 缺点
 - verbose
 - code locality
-
-## React + Redux (MVVM)
-- Model (M): Redux
-  - global state management
-- View (V): JSX + CSS
-  - how things look
-- View-Model (VM): Component
-  - manages simple state, passes data directly onto View
 
 ## react hook
 - a way to reuse stateful logic, not state
@@ -173,11 +184,12 @@ function useFriendStatus(friendID) {
 }
 ```
 
-## pattern: HoC（Higher-Order Component）？
-- 高阶组件不是组件，是 增强函数
+## pattern: HoC（Higher-Order Component）
 - 输入一个元组件，返回出一个新的增强组件
-- 高阶组件的主要作用是 代码复用，操作 状态和参数
-- 属性代理 (Props Proxy): 给元组件添加 props
+- 高阶组件的主要作用是组件逻辑复用
+  - 以同样的逻辑操作输入组件的状态和参数
+- use case
+  - 属性代理 (Props Proxy): 给元组件添加 props
 
 ```js
 function withOnChange(Comp) {
@@ -244,7 +256,26 @@ function withAdminAuth(WrappedComponent) {
 )}/>
 ```
 
-# CRA customization
+## client-side rendering vs server-side rendering
+- client-side rendering
+  - example framework: create-react-app (CRA)
+  - pros
+    - rich interaction
+    - faster response after load
+  - cons
+    - bad for seo
+    - slow initial load
+- server-side rendering
+  - example framework: NextJs
+  - pros
+    - seo
+    - initial page load
+    - static sites
+  - cons
+    - full page reload
+    - slower page rendering
+
+## CRA customization
 - eslint
   https://create-react-app.dev/docs/setting-up-your-editor/
 - webstorm integration
@@ -253,20 +284,3 @@ function withAdminAuth(WrappedComponent) {
   https://github.com/timarney/react-app-rewired
 - customize-cra
   https://github.com/arackaf/customize-cra
-
-  ## client-side rendering vs server-side rendering
-  - client-side rendering
-    - pros
-      - rich interaction
-      - faster response after load
-    - cons
-      - bad for seo
-      - slow initial load
-  - server-side rendering
-    - pros
-      - seo
-      - initial page load
-      - static sites
-    - cons
-      - full page reload
-      - slower page rendering

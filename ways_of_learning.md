@@ -11,3 +11,6 @@
   - knows the obstacles and how to overcome them
 - uncouncious competence
   - knows how to do things without thinking
+
+## simplicity vs complexity
+- always

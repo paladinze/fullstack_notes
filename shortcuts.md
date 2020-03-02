@@ -1,10 +1,24 @@
 # shortcuts
 
 ## mac system shortcuts
+- close window
+  - cmd + w
+- close app
+  - cmd + q
+- switch app
+  - cmd + tab
 - go to start of line
   - cmd + left
 - delete entire line
   - cmd + d
+- change view mode in Finder
+  - cmd + 1, cmd + 2, cmd + 3, cmd + 4
+- create new dir
+  - cmd + shift + N
+- select multiple files
+  - cmd + click
+- emoji
+  - ctrl + cmd + space 🛵
 - offical mac default shortcuts reference
 	- https://support.apple.com/zh-hk/HT201236
   - https://support.apple.com/zh-hk/HT204434
@@ -54,6 +68,11 @@
 - go to prev dir: -
 - offical reference: 
   - https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet
+
+## chrome
+- open new tab: cmd + t
+- open new window: cmd + n
+- open new incognito window: shift + cmd + n
 
 ## chrome extension: vimium
 - close/restore tab: x/X

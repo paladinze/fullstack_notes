@@ -1,14 +1,21 @@
 # git
 
-## cli
-- init git: git init
-- stage files: git add
-- commit files: git commit
-- push files: git push (gp)
-- status check: git status (gst)
+## CLI
+- init git: `git init`
+- stage files: `git add`
+	- add all changes: `git add --all`
+	- add all changes in tracked files: `git add -u`
+	- add some changes of a file: `git add --patch`
+- commit files: `git commit`
+- push files: `git push` (gp)
+- status check: `git status` (gst)
 - pull file: 
-	- git pull = git fetch + git merge
-	- git pull –rebase = git fetch + git rebase (gup)
+	- `git pull` = git fetch + git merge
+	- `git pull –rebase` = git fetch + git rebase (gup)
+- store modifications and revert working dir to HEAD
+	- store: `git stash` = git stash push (gsta)
+	- apply changes back: `git stash pop` = git stash apply (gstaa)
+	- remove stashed change: `git stash drop` (gstd)
 
 ## workflow
 - pull remote changes & then push all locally changed files
