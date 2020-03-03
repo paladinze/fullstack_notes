@@ -84,7 +84,7 @@
   - validation: throw exception if invalid
 - operate on arguments processed by controller route handler
 - no controller method is executed if exception is thrown
-- built-in pieples
+- built-in pipes
   - ValidationPipe
   - ParseIntPipe
   - ParseUUIDPipe
@@ -104,12 +104,12 @@
   - transform returned ressult
   - transform exception thrown
 
-oop
-  patterns
-    IOC: inversion of control
-    SOC: 
-	decoupling
-		inversion of control
+## oop
+- patterns
+  - IOC: inversion of control
+  - SOC: 
+- decoupling
+  - inversion of control
 	
 ## DTO
 - exist between network transfer boundaries
@@ -119,7 +119,12 @@ oop
 
 ## ORM
 - data access layer (like dao layer in Java)
-
+- transaction (事物)
+  - should be ACID: atomic, consistent, isolation, durability
+    - atomic: transaction cannot be divded futher, execute all or nothing
+    - consistent: tranform db from one consistent state to another consistent state
+    - isolated: conccurent transactions cannot affect each other
+    - durable: onece effective, effect is permanent
 
 ## CLI
 - project init

@@ -217,6 +217,7 @@
 
 ## people
 - 叶劲峰 
+- 西门孟
 
 ## feature based challenges
 - 精灵的显示如何分清楚哪个先渲染哪个后渲染（渲染层次）

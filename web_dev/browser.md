@@ -1,26 +1,28 @@
 ## 介绍一下你对浏览器内核的理解？
 
-- 主要分成两部分：渲染引擎和 JS 引擎
-- 渲染引擎
-  - 取得网页的内容（HTML、XML、图像等等）
-  - 整理讯息（例如加入 CSS 等）
-  - 计算网页的显示方式，然后会输出至显示器
-- JS 引擎
-
+- core = rendering engine + JS engine
+- rendering engine
+  - render tree = DOM + CSSOM
+    - DOM: document structure and content
+    - CSSOM: document CSS rules
+  - layout = calculate position of every node inside the view port
+  - paint
+    - render the render tree as pixels
+  - example: chrome Blink (inherited WebCore from webkit)
+- JS engine
   - 解析和执行 javascript
   - 执行栈
-
+  - example: chrome V8 JavaScript Engine
 - 主要线程
   - 事件触发线程
     - 消息队列： 微任务 + 宏任务
   - 网络异步线程
   - 定时器线程
 
-## 常见的浏览器内核有哪些？
-
-- Webkit 内核：Chrome, Safari, Edge, 360, opera
-- Trident 内核：IE
-- Gecko 内核：Firefox
+## common rendering engines
+- Webkit or webkit derived：Chrome, Safari, Edge, 360, opera
+- Trident：IE
+- Gecko：Firefox
 
 ## 跨标签页通讯
 
@@ -32,10 +34,8 @@
 - 设置共享 cookie 与不断轮询脏检查(setInterval)
 
 ## 浏览器的缓存机制
-
 - 浏览器对于缓存的处理是根据第一次请求资源时返回的响应头来确定的
 - 从缓存位置上来说分为四种，并且各自有优先级，当依次查找缓存且都没有命中的时候，才会去请求网络。
-
 - Service Worker
 - Memory Cache
   - 样式、脚本、图片
@@ -48,14 +48,11 @@
   - 缓存时间很短暂，在 Chrome 浏览器中只有 5 分钟左右
 
 ## 强缓存 vs 协商缓存
-
 - 强缓存
-
   - 通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。
   - Cache-Control:max-age=300 时，则代表在这个请求正确返回时间（浏览器也会记录下来）的 5 分钟内再次加载资源，就会命中强缓存。
   - Expires： 响应 http 请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求
     - HTTP/1 的产物,现阶段它的存在只是一种兼容性的写法
-
 - 协商缓存
   - 协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程
   - 协商缓存可以通过设置两种 HTTP Header 实现：Last-Modified 和 ETag 。

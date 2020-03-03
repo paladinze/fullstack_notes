@@ -7,6 +7,7 @@
 	- add all changes in tracked files: `git add -u`
 	- add some changes of a file: `git add --patch`
 - commit files: `git commit`
+	- add changes of all tracked files and commit: `git commit -am "messaage"` (gcam)
 - push files: `git push` (gp)
 - status check: `git status` (gst)
 - pull file: 
@@ -38,6 +39,21 @@
 	git commit --amend
 	git push
 	```
+- resolve a merge conflict caused by pull
+	```sh
+	# ... fix conflicts in editor or diff tool
+	git add resolved files
+	git commit
+	```
+- resolve a merge conflict caused by stash
+	```sh
+	git stash pop
+	# ... fix conflicts in editor or diff tool
+	git reset or git add resolved files
+	git stash drop
+	git commit
+	```
+
 
 ## commit message convention
 - commit message standard: angular convention

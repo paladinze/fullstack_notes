@@ -52,11 +52,6 @@
 - lambdas (aka. serverless functions) running on Node
 - every file inside page/api
 
-## deployment
-- deploy using now
-  - npm i -g now
-  - now
-
 ## export as static html
 - add next.config.js
 - next build
@@ -71,3 +66,7 @@
 - getInitialProps => SSR
 - SEO not important => don't SSR
 
+## deployment
+- deploy using now
+  - npm i -g now
+  - now
