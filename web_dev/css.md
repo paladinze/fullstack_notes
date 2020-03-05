@@ -1,18 +1,47 @@
-- What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
-- Describe Floats and how they work.
-- Describe z-index and how stacking context is formed.
-- Describe BFC (Block Formatting Context) and how it works.
-- What are the various clearing techniques and which is appropriate for what context?
-- How would you approach fixing browser-specific styling issues?
-- Are you familiar with styling SVG?
-- Can you give an example of an `@media` property other than `screen`?
-- Explain how a browser determines what elements match a CSS selector.
-- What's the difference between the "nth-of-type()" and "nth-child()" selectors?
-- What's the difference between a relative, fixed, absolute and statically positioned element?
-- Have you ever worked with retina graphics? If so, when and what techniques did you use?
-- Is there any reason you'd want to use `translate()` instead of _absolute positioning_, or vice-versa? And why?
+# CSS
 
-## CSS 设计方法
+## flexbox
+- define flexbox
+  - display: flex
+  - justify-content: space-around / space-between
+  - align-items: space-around / space-between
+- items in flex
+  - flex: 2
+
+## css grid
+- define grid
+  - display: grid
+  - grid-gap: 10px
+  - `grid-template: <row1-height> <row2-height> / <col1-width> <col2-width>`
+    - grid-template-rows
+    - grid-template-columns
+- items in grid
+  - `grid-area: <row-start> / <column-start> / <row-end> / <column-end>`
+    - grid-row-start
+    - grid-row-end
+    - grid-column-start
+    - grid-column-end
+- examples: 2rows * 3columns
+  - 1st row: item2, item3, 3rd column empty
+  - 2nd row: item1 spans two columns, 3rd column empty
+    ```css
+    .container {
+      display: grid;
+      grid-template: 1fr 1fr / repeat(3, 1fr);
+    }
+    .item1 {
+      grid-area: 2 / 1 / 2 / span 2;
+      background: red;
+    }
+    .item2 {
+      background: green;
+    }
+    .item3 {
+      background: yellow;
+    }
+    ```
+
+## CSS design considerations
 
 - Use Low-Specificity Selectors
 
@@ -298,7 +327,7 @@
 }
 ```
 
-# 响应式设计
+## 响应式设计
 
 - fluid grid: layout sized in relative units
   - examples:
@@ -422,3 +451,19 @@
 - 框架：Bootstrap
   - 必须理解容器（container）、行（row）和列（column）之间的层级关系。
   - container 是网格的容器，row（.row）必须位于 container 的内部，column（如 .col-sm-4）必须位于 row 的内部
+
+
+## more questions
+- What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+- Describe Floats and how they work.
+- Describe z-index and how stacking context is formed.
+- Describe BFC (Block Formatting Context) and how it works.
+- What are the various clearing techniques and which is appropriate for what context?
+- How would you approach fixing browser-specific styling issues?
+- Are you familiar with styling SVG?
+- Can you give an example of an `@media` property other than `screen`?
+- Explain how a browser determines what elements match a CSS selector.
+- What's the difference between the "nth-of-type()" and "nth-child()" selectors?
+- What's the difference between a relative, fixed, absolute and statically positioned element?
+- Have you ever worked with retina graphics? If so, when and what techniques did you use?
+- Is there any reason you'd want to use `translate()` instead of _absolute positioning_, or vice-versa? And why?

@@ -19,7 +19,9 @@
   - fullscreen scrolling sites: fullPage.js
 - statement management：Redux，Redux saga，mobx, vuex
 - stylecheck: ESLINT, TSLint
-- testing：Jest, Enzyme，cypress
+- testing：
+  - unit test: Jest, Enzyme
+  - end to end test: cypress
 - design sharing：zeplin，storybook
 - IDE：VS Code，Webstorm
 - version control：git
@@ -42,6 +44,7 @@
   - embed video: videoJs
   - 3d webgl rendering: webGL
   - 2d webgl rendering: pixiJs
+  - machine learning: TensorFlow.js
   - template engine: handlebar
   - audio library: HowlerJs
   - gis: SuperMap, ArcGIS, GeoServer

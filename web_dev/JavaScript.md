@@ -512,7 +512,33 @@ doSomething
                                      |------------------|
 ```
 
+## object methods
+- object.keys
+- object.values
+- object.entries
+  ```js
+  obj = {a: 1, b: 2}
+  Object.keys(obj)
+  [ 'a', 'b' ]
+  Object.values(obj)
+  [ 1, 2 ]
+  Object.entries(obj)
+  [ [ 'a', 1 ], [ 'b', 2 ] ]
+  ```
 
+## nullish coalescing
+- a new logical operator: ??
+- return the things on the right if the thing on the left is null / undefined
+- else return the thing on the left
+```js
+const foo = null ?? 'default string';
+console.log(foo);
+// expected output: "default string"
+
+const baz = 0 ?? 42;
+console.log(baz);
+// expected output: 0
+```
 
 ## generator 是什么？
 
