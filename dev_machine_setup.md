@@ -56,7 +56,10 @@
   - list account: lpass ls
   - get password: lpass show --password gmail.com
 
-## multimedia player
+## compression
+- unarchiver: decompress rar files
+
+## multimedia
 - video: vlc
 - music: netease music
 - screen capture: kap
@@ -116,24 +119,18 @@
     - 1500
   - SSD: 三星(SAMSUNG) 860 EVO 500G SATA3
     - 1100
-  - Motherboard
-    - 微星（MSI）B350M MORTAR迫击炮 主板（AMD B350/Socket AM4）
-      680
-  - Power
-    - 美商海盗船（USCorsair）额定650W RM650x 电源（80PLUS金牌/全模组/静音低载风扇停转/十年质保）
-      900
-  - case
-    - 酷冷至尊(CoolerMaster)侦察兵II 台式电脑主机中塔机箱(支持ATX主板/USB3.0/电源下置/大侧透面板) 黑色
-      500
-  - monitor
-    - SAMSUNG 4K
-      2800
-  - Sound
-    - 哈曼卡顿（Harman Kardon）SoundSticks III 水晶3代音响 电脑音箱 低音炮 迷你小音响
-      1000
-  - keyboard
-  	- ikbc c87
-      400
+  - Motherboard: 微星（MSI）B350M MORTAR迫击炮 主板（AMD B350/Socket AM4）
+    - 680
+  - Power: 美商海盗船（USCorsair）额定650W RM650x 电源（80PLUS金牌/全模组/静音低载风扇停转/十年质保）
+    - 900
+  - case: 酷冷至尊(CoolerMaster)侦察兵II 台式电脑主机中塔机箱(支持ATX主板/USB3.0/电源下置/大侧透面板) 黑色
+    - 500
+  - monitor: SAMSUNG 4K
+    - 2800
+  - Sound: 哈曼卡顿（Harman Kardon）SoundSticks III 水晶3代音响 电脑音箱 低音炮 迷你小音响
+    - 1000
+  - keyboard: ikbc c87
+    - 400
 
 
 - Manny Desktop
@@ -146,4 +143,4 @@
   - 显示器：AOC 32英寸2K显示器 Q3279VWF 75HZ
   - 散热器：AMD RYZEN 原装散热器1700x 原装RGB灯风扇spire 
   - 机箱：MasterBox Lite 5/3.1 RGB PRO5 侧透游戏电脑机箱
-  - 以及电源转换器，蓝牙适配器，无线网卡共约90
+  - 以及电源转换器，蓝牙适配器，无线网卡

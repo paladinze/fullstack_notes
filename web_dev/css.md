@@ -1,5 +1,37 @@
 # CSS
 
+
+## why stylesheet
+- seperation of concern
+- cacheable
+- don't bloat html
+
+## syntax
+<selector> {
+  css_property: value;
+}
+
+## selectors
+- univerlsal selector: *
+- element selector: h1
+- id selector: #item-id
+- class selector: .class-name
+- attribute selector: [disabled]
+
+## combinators
+- direct descendent: >
+- adjacent sibling: +
+- general descendent: " "
+
+
+## select priorities
+- Importance > specific > source order
+- 继承的样式和直接指定的样式冲突时，直接指定的样式获胜
+- 直接指定的样式发生冲突时，样式权值高者获胜
+  - 选择器优先级： !important > inline > #id > .class > tag > \* > 继承 > 默认
+  - 选择器 从右往左 解析
+- 样式权值相同时，后者获胜
+
 ## flexbox
 - define flexbox
   - display: flex
@@ -117,14 +149,6 @@
 }
 ```
 
-## CSS 样式覆盖规则
-
-- Importance > specific > source order
-- 继承的样式和直接指定的样式冲突时，直接指定的样式获胜
-- 直接指定的样式发生冲突时，样式权值高者获胜
-  - 选择器优先级： !important > inline > #id > .class > tag > \* > 继承 > 默认
-  - 选择器 从右往左 解析
-- 样式权值相同时，后者获胜。
 
 ## 如何计算相对单位的实际像素
 
