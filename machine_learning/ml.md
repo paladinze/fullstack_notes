@@ -1,5 +1,48 @@
 # Machine Learning
 
+## terms
+- data set:
+- instance
+- sample
+- attribute / feature
+- attribute value
+- attribute space
+- sample space
+- feature vector
+- dimensionality
+- learning / training
+- training data / training sample
+- training set
+- hypoyhesis
+- ground-truth
+- learner
+- prediction
+- label
+- example
+- label space
+- classification: predict discrete value
+  - binary classification
+    - positive class
+    - negative class
+  - multi-class classification
+- regression: predict continuous value
+- testing: the process of predicting
+- testing sample: sample used for testing
+- cluster: group of training data
+- supervised learning
+- unsupervised learning
+- generalization
+- distribution
+  - i.i.d: independent and identical distribution
+- induction: generalization
+- deduction: specialization
+- version space: a set of hypothesis that fits data
+- no free launch theorem
+  - all algos are equal, assuming problems have the chance of happening and of equal importance
+
+
+
+
 ## software frameworks
 - tensorflow: top machine learning platform
   - Keras: Libray or API to tensorflow
