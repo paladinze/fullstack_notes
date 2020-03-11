@@ -40,7 +40,32 @@
 - no free launch theorem
   - all algos are equal, assuming problems have the chance of happening and of equal importance
 
+## measure performance
+- confusion matrix
+	- true positive
+	- true negative
+	- false positive
+	- false negative
 
+## how to divide training & test data
+- cross validation
+	- aka. k-fold cross validation
+	- divide data into k subsets
+	- for each of the subset
+		- use it as test set,
+		- use the remaining data as train set
+	- result is the average of the k train/test pair
+	- special case: LOO (leave one out)
+
+- bootstrap sampling
+	- randomly select data from data pool
+		- allow sampling data already sampled
+		- 0.368 chance of data not selected at all
+	- test data = data pool - sampled data
+	- test result called out-of-bag estimate
+	- applicable only to small data
+		- change original data distribution
+		- introduct estimation bias
 
 
 ## software frameworks
@@ -102,3 +127,5 @@
 - Multilayer Perceptrons
 - feedforward neural networks
 - convolutional neural network
+
+
