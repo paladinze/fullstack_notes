@@ -40,6 +40,23 @@
 - no free launch theorem
   - all algos are equal, assuming problems have the chance of happening and of equal importance
 
+- statistical learning
+	- support vector machine
+	- kernal method
+	- connectionism: deep learning 
+- error
+	- training error / emperical error: training set
+	- generalization error: test set
+
+- overfitting
+	- learnt too much from samples
+	- bad for generalization
+- underfiting
+	- learnt too little
+
+- model selection:
+	- minimize generalization error
+
 ## measure performance
 - confusion matrix
 	- true positive
@@ -48,6 +65,11 @@
 	- false negative
 
 ## how to divide training & test data
+
+- stratified sampling: sample while maintaining the data ratio
+- hold-out: divde data with no overlap
+  - 4/5 for training or 2/3 for training
+
 - cross validation
 	- aka. k-fold cross validation
 	- divide data into k subsets
