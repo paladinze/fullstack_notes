@@ -63,9 +63,9 @@
 	- true negative
 	- false positive
 	- false negative
+- AUC curve
 
 ## how to divide training & test data
-
 - stratified sampling: sample while maintaining the data ratio
 - hold-out: divde data with no overlap
   - 4/5 for training or 2/3 for training
@@ -89,14 +89,34 @@
 		- change original data distribution
 		- introduct estimation bias
 
-
-## software frameworks
-- tensorflow: top machine learning platform
-  - Keras: Libray or API to tensorflow
-- SciPy: scientific computing
-- numpy: scientific computing
-- scikit-learn:  popular open-source ML library in Python
-- pandas: library for handling input data
+## reinforcement learning
+- the input output system
+  - input: the state
+  - policy: transform state to action
+  - output: the action
+- the reward
+  - can be defined as derivitive of score
+- the AI environment
+  - state
+  - action
+  - reward
+- the markov decision process (MDP)
+  - observe current state
+  - perform action
+  - receive reward based on state and action
+  - enters next state
+  - the ultimate goal is to maximize sum of all rewards
+- training and inference
+  - training
+    - choose model
+    - init params
+    - for each iteration (called episode)
+      - give award based on action
+      - adjust params using q-learning, stochastic gradient descent, backpropogation
+    - repeat the iterations
+  - inference
+    - don't adjust params
+    - act based on trained model
 
 ## concepts
 - Goal
@@ -150,4 +170,10 @@
 - feedforward neural networks
 - convolutional neural network
 
-
+## software frameworks
+- tensorflow: top machine learning platform
+  - Keras: Libray or API to tensorflow
+- SciPy: scientific computing
+- numpy: scientific computing
+- scikit-learn:  popular open-source ML library in Python
+- pandas: library for handling input data
