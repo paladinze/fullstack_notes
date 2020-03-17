@@ -18,6 +18,26 @@
 	- apply changes back: `git stash pop` = git stash apply (gstaa)
 	- remove stashed change: `git stash drop` (gstd)
 
+
+## merge a branch into master
+- assume want to merge branch named hotfix into master
+- make sure local repo is up to date
+	- git fetch
+	- git checkout master
+	- git pull
+	- checkout the branch should receive the change: master
+- the merge
+	- git merge hotfix
+		- case: fast-forward merge
+			- master has not diveraged
+			- merge is just pointing master to latest of hotfix
+		- case: three-way merge
+			- use an extra commit to tie two branches togethgit
+			- merge conflict could happen
+				- resolve conflicts mannaully
+				- git add on files with conflicts to mark it as resolved
+				- git commit to generate the merge commit
+
 ## workflow
 - pull remote changes & then push all locally changed files
 	```sh

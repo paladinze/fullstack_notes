@@ -1,7 +1,7 @@
 # Machine Learning
 
 ## terms
-- data set:
+- data set
 - instance
 - sample
 - attribute / feature
