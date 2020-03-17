@@ -37,6 +37,16 @@
 				- resolve conflicts mannaully
 				- git add on files with conflicts to mark it as resolved
 				- git commit to generate the merge commit
+- abort a merge
+	- git merge --abort
+
+## rebase and merge after cherry-pick
+- git checkout master
+- git cherry-pick <hotfix_a_sha>
+- git rebase master b
+- git checkout master
+- git merge b
+
 
 ## workflow
 - pull remote changes & then push all locally changed files
