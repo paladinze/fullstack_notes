@@ -29,11 +29,7 @@
 - TDD: test first testing
 - BDD: function first testing
 
-
-
-
 ## 黑盒测试和白盒测试
-
 - 黑盒测试：测试功能
 - 白盒测试：测试内部逻辑
 
@@ -131,3 +127,39 @@ Unit Test是完成小粒度单元级别的检查，举个例子来讲（当然�
 * 事件、交互调用要求100%覆盖；
 * connect 过的高阶组件不测
 * 纯 UI 一般不测
+
+
+## Mobile testing
+- install and uninstall
+	- android
+		- official tool: adb (android debugger bridge)
+		- install and update test: cukeTest
+	- iOS
+		- idb
+- stability test
+	- android
+		- monkey tool
+			- simulate touch nav motion events at specified freqency
+- app crawler
+- unstable internet testing
+	- tool: chalers. QNET
+	- speed throttling
+	- reconnect mechanism
+	- prompt user to switch better network environment
+- performance test
+	- all-in-one tool (recommanded)
+		- SoloPi (alipay)
+		- PerfDog (tencent)
+	- cpu: adb dumpsys
+	- memory
+		- shaking
+		- memory keep increasing
+		- frequent gc
+	- network : tcpdump / wireshark
+	- battery; adb Battry historian
+	- rendering fps: adb
+	- apk size
+		- google apk analyzer
+		- wechat Matrix
+	- reference performance baseline: green software alliance (huowei)
+	- compatbility test: testin
