@@ -57,6 +57,18 @@
 - model selection:
 	- minimize generalization error
 
+
+
+
+## neural networks vs biological neurons
+	data processed in layers
+	layers stack on top of each other
+	connections only between adjacent ones
+
+## layer vs math function
+	layer is stateful
+	weight is the state
+
 ## measure performance
 - confusion matrix
 	- true positive

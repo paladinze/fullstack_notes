@@ -39,6 +39,8 @@
 				- git commit to generate the merge commit
 - abort a merge
 	- git merge --abort
+- abort after merge
+	- git reset --hard HEAD~1
 
 ## rebase and merge after cherry-pick
 - git checkout master
@@ -46,6 +48,20 @@
 - git rebase master b
 - git checkout master
 - git merge b
+
+## branch operation
+- delete local branch
+	- git branch -d <branch_name>
+- delete remote branch
+	- git push origin --delete <branch_name>
+
+
+## pull request workflow
+- create new local branch: `git checkout -b <branch_name>`
+- push local branch to remote: `git push -u origin <branch_name>`
+- create pull create on github website
+- ask for review and merge
+- delete local and remote branch
 
 
 ## workflow
@@ -59,15 +75,14 @@
 	npm test
 	git push
 	```
-- ammend a commit (that is not pushed yet) with new message
+- ammend a commit with new message
 	```
 	git commit --amend -m 'a new message'
 	```
-- ammend a commit (that is not pushed yet) with new changes
+- ammend a commit with new changes
 	```sh
 	git add newly_changed_file.md
-	git commit --amend
-	git push
+	git commit --amend --no-edit
 	```
 - resolve a merge conflict caused by pull
 	```sh
@@ -85,7 +100,13 @@
 	```
 
 
-## commit message convention
+## what is a good commit
+- easy to review
+- easy to revert
+- easy to `git blame`
+- easy to `git bisect`
+
+
 - commit message standard: angular convention
   - reference: https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit
   - commit template

@@ -477,6 +477,21 @@
   - container 是网格的容器，row（.row）必须位于 container 的内部，column（如 .col-sm-4）必须位于 row 的内部
 
 
+## CSS history
+	css 1: 1996
+	css 2: 1998
+	css 3: in dev
+		the final version, future version tracked in feature modules
+
+why stylesheet
+	seperation of concern
+	cacheable
+	don't bloat html
+
+check current browser font setting
+	settings => appearance => customize font
+
+
 ## more questions
 - What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
 - Describe Floats and how they work.

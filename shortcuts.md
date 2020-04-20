@@ -49,6 +49,10 @@
 - add thing in front of all selected lines
   - shift + option + i
   - command + left
+- switch between projects
+  - cmd + '`'
+- select next occuranc of word
+  - ctrl + G
 
 ## iterm2
 - clear screen: cmd + R
@@ -73,6 +77,7 @@
 - open new tab: cmd + t
 - open new window: cmd + n
 - open new incognito window: shift + cmd + n
+- open dev tool console: opt + cmd + j
 
 ## chrome extension: vimium
 - close/restore tab: x/X

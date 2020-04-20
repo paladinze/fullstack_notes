@@ -128,7 +128,6 @@ Unit Test是完成小粒度单元级别的检查，举个例子来讲（当然�
 * connect 过的高阶组件不测
 * 纯 UI 一般不测
 
-
 ## Mobile testing
 - install and uninstall
 	- android
