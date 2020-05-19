@@ -756,6 +756,41 @@ btn.onclick = function(){}
   - 非常耗性能
 
 
+
+## advanced console.log usage
+
+- assert variable value
+```js
+let varMustBeTrue = false;
+console.assert(varMustBeTrue, "this must be true");
+```
+
+- log with labels
+```js
+let varMustBeTrue = false;
+console.log({varMustBeTrue});
+```
+
+- print with table
+```js
+let a = 1;
+let b = 2;
+console.table([a, b])
+```
+
+- time action
+```js
+console.time()
+console.timelog()
+```
+console.group(label)
+console.groupCollapesed('shit')
+
+- console log with style
+```js
+console.log('%c hello world')
+```
+
 ## History
 - 1990 Tim Berners-Lee
   - create first browser and server

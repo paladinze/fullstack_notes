@@ -136,3 +136,35 @@
     ```js
     [Ze][#596] feat: added some crazy new feature
     ```
+
+文本
+
+customized	
+	internal
+		labor Rate - follow website
+		labor rate - 0
+	normal
+		labor rate -1
+
+
+warrarya, internal
+	customer don't care	
+		no need to pay
+		performa 0 
+	accounting
+		lineitem part 0
+
+
+courtsey car
+	labour rate 1 default
+		0 for accounting purse
+
+fetchLabourTypes
+	props.labourTypes
+		quickSearchBar
+		serviceProductPanel
+			redirectToLabourPage
+				gotoAddLabor
+					onSaveLabor
+						getLabourCarts
+						getDefaultLaborDiscount
