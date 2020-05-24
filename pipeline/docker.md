@@ -111,3 +111,10 @@ docker run --rm --volumes-from data_ghost -v $(pwd):/backup busybox tar xvf /bac
 
 # start app container from the new data container
 docker run -d --name myGhost -p 80:2368 --volumes-from data_ghost ghost:1.16
+
+
+## three levels of file system
+
+- readonly level
+- init level
+- read/write level
