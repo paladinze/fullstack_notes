@@ -1,5 +1,19 @@
 # Vue
 
+## vue
+dom interaction 
+vuejs instance
+vue cli
+vuex
+components
+directives
+filters
+mixins
+animation & transitions
+accessing db
+routing
+vuepress
+
 ## installation
 - npm install -g @vue/cli
 

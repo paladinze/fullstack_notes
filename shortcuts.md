@@ -23,6 +23,10 @@
 	- https://support.apple.com/zh-hk/HT201236
   - https://support.apple.com/zh-hk/HT204434
 
+## windows system screenshot
+- save to clipboard: win + shift + s
+- save file: win + s
+
 ## editor shortcuts
 - append text at the start of selected lines
   - Press CTRL + A to select all of the text
@@ -53,6 +57,24 @@
   - cmd + '`'
 - select next occuranc of word
   - ctrl + G
+- remove redundent import
+  - ctrl + option + o
+- format file
+  - option + cmd + L
+- generate code
+  - cmd + N
+- move line up/down
+  - option + shift + arrow
+- extract method
+  - option + cmd + M
+- Java
+  - public static void main: psvm
+  - print stuff: sout
+  - for loop: 5.fori
+
+
+
+
 
 ## iterm2
 - clear screen: cmd + R
@@ -87,3 +109,8 @@
 - show links on the page
 - open url: O
 - copy current url: yy
+
+
+## curl
+- for loop download
+  - for i in {1..110}; do curl -O https://martinfowler.com/photos/$i.jpg &; done
