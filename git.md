@@ -137,34 +137,23 @@
     [Ze][#596] feat: added some crazy new feature
     ```
 
-文本
 
-customized	
-	internal
-		labor Rate - follow website
-		labor rate - 0
-	normal
-		labor rate -1
+## release tagging
+- types of tags
+	- lightweight：just pointer to commit
+	- annotated
+		- contain tagger name, email and date
+		- tagging message
+		- `git tag -a v1.4 -m "tag message"`
+- list tags
+	- git tag -l
+- show tag details
+	- git cat-file tag <tagname>
+- push tags
+	- push single tag: `git push origin <tag_name>`
+	- push tags: `git push origin --tags`
 
 
-warrarya, internal
-	customer don't care	
-		no need to pay
-		performa 0 
-	accounting
-		lineitem part 0
-
-
-courtsey car
-	labour rate 1 default
-		0 for accounting purse
-
-fetchLabourTypes
-	props.labourTypes
-		quickSearchBar
-		serviceProductPanel
-			redirectToLabourPage
-				gotoAddLabor
-					onSaveLabor
-						getLabourCarts
-						getDefaultLaborDiscount
+## print git log
+- commit logs: git log --date=iso --pretty=format:'"%h","%an","%ad","%s"'
+- release tags: git tag -l --sort=-creatordate --format='%(creatordate:short):  %(refname:short)'
