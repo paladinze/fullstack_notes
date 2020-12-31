@@ -32,6 +32,26 @@
   - 选择器 从右往左 解析
 - 样式权值相同时，后者获胜
 
+## naming convention: BEM
+- purpose
+  - guarantee uniqueness across your entire application.
+  - avoids specificity and inheritance issues
+- format: Blocks__Elements--Modifiers
+- never nest selectors or select anything other than one single CSS class in your CSS files
+
+## Design System
+- Part 1: Typography
+	- typeface (font family)
+	- typescale
+	- repsonsiveness (size unit & breakpoint)
+	- spacing & vertical rhythm
+	- colors
+- Part 2: Grid & Layout
+- Part 3: Colors
+- Part 4: Spacing
+- Part 5: Icons
+- Part 6: Buttons
+
 ## flexbox
 - define flexbox
   - display: flex

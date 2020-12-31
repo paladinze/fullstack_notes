@@ -19,9 +19,22 @@
   - cmd + click
 - emoji
   - ctrl + cmd + space 🛵
+- finder
+	- see file details: shift + cmd + p
+	- go to: shift + cmd +g
+- browser
+	- restore tab just closed: shift + cmd + t
+	- cmd + l: select address bar
+- OS
+	- paste as plain text: shift + cmd + option + v
+	- shift + command + 4: select window for copy and paste
+	- switch between different window of same app: cmd + `
+
+
 - offical mac default shortcuts reference
 	- https://support.apple.com/zh-hk/HT201236
   - https://support.apple.com/zh-hk/HT204434
+
 
 ## windows system screenshot
 - save to clipboard: win + shift + s
@@ -71,9 +84,10 @@
   - public static void main: psvm
   - print stuff: sout
   - for loop: 5.fori
-
-
-
+- to upper case
+  - shift + cmd + U
+- extend and shrink selection
+  - option + up / option + down
 
 
 ## iterm2

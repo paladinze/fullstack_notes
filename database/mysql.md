@@ -69,3 +69,44 @@ GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
 
 //show all users
 SELECT User FROM mysql.user;
+
+
+
+## joins
+- `inner join` (aka `join`)
+	- get only the overlapped rows
+- `left join` (aka `left outer join`)
+	- keep the left table rows even if there is no match
+- `right join` (aka `right outer join`)
+	-	keep the right table rows even if there is no match
+- `full join`
+	- mysql can only emulate this through `UNION ALL` a left join & right join
+
+## group
+- reduce rows through `GROUP BY`
+
+## aggregate
+- reduce values through `aggregate function`
+
+## subqueries
+- can be used as multiple things
+	- value
+	```sql
+	SELECT COUNT(name) FROM products
+	```
+	- rows
+	```sql
+	FROM (SELECT * FROM products) AS p1
+	JOIN (SELECT * FROM prodcts) AS p2 on p1.id=p2.id
+	```
+	- column
+	```sql
+	where p1.id IN (SELECT id FROM products);
+	```
+- rules
+	- in SELECT: must be a scalar value
+	- in FROM: 
+		- can by anything, but must be compatible with outer environement
+		- must use alias
+	- in JOIN: must be compatible with ON
+	- in WHERE: must be compatible with comparison operator

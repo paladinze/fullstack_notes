@@ -141,7 +141,7 @@ Unit Test是完成小粒度单元级别的检查，举个例子来讲（当然�
 			- simulate touch nav motion events at specified freqency
 - app crawler
 - unstable internet testing
-	- tool: chalers. QNET
+	- tool: chalers
 	- speed throttling
 	- reconnect mechanism
 	- prompt user to switch better network environment
@@ -162,3 +162,25 @@ Unit Test是完成小粒度单元级别的检查，举个例子来讲（当然�
 		- wechat Matrix
 	- reference performance baseline: green software alliance (huowei)
 	- compatbility test: testin
+
+
+The goal for mocking is to replace something we don’t control with something we do
+mock function 
+	Capture calls
+	Set return values
+	Change the implementation
+
+
+## React Testing library
+getby
+		get something that exists
+	getByRole
+		use element's default role as hint
+	queryby
+		asserting that an element isn't there
+	findby
+		aysnc query
+test user event
+	fireEvent / userEvent
+
+
