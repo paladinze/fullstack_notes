@@ -19,26 +19,27 @@
   - eslint: code quality check
   - path intellisense: filename autocomplete
   - prettier: formatter
-- intellij-idea-ce (java)
-- webstorm (JavaScript)
+- intellij-idea
+  - java / js
 
-## terminals
+## terminal
 - iterm2
+  - shell: zsh
   - color scheme: 3024 night
+  - hint: can load existing profiles from preferences (general => preferences tab)
 - omyzsh
-  - theme: powerlevel9k
-  - font: powerline
-  - plugin: z
+  - theme: powerlevel10k
+  - font: MesloLGS NF Regular.ttf
 - vscode setting.json
-  - add line: "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+  - add line: "terminal.integrated.fontFamily": "MesloLGS NF",
 
-## install package manager
+## package manager
 - mac packages: homebrew
 - node version manager: nvm or n
 
 ## browsers
 - chrome
-  - chrome extension: 
+  - extensions
 	  - vimium, react, angular, vue dev-tools 
 - safari (for ios device debugging)
 
@@ -69,7 +70,9 @@
 - game design: unity, unreal
 - 2D image editing: gmip
 - 3D modeling: blender
-- zeplin: design sharing
+- design:
+  - figma
+  - zeplin
 
 ## backend dev
 - install java
@@ -131,16 +134,3 @@
     - 1000
   - keyboard: ikbc c87
     - 400
-
-
-- Manny Desktop
-  - CPU：锐龙 AMD Ryzen 7 1700X +
-  - 主板：华硕 PRIME B350-PLUS支持AM4 ATX台式机电脑游戏主板1700X 
-  - 电源：CORSAIR 美商海盗船 SF600 额定600W SFX 
-  - 内存：金士顿 骇客神条DDR4 16G 2933 
-  - 硬盘：三星 MZ-76E500 860EVO 500G SSD 笔记本 台式机固态硬盘
-  - 显卡：耕升1070Ti显卡GTX1070TI 
-  - 显示器：AOC 32英寸2K显示器 Q3279VWF 75HZ
-  - 散热器：AMD RYZEN 原装散热器1700x 原装RGB灯风扇spire 
-  - 机箱：MasterBox Lite 5/3.1 RGB PRO5 侧透游戏电脑机箱
-  - 以及电源转换器，蓝牙适配器，无线网卡
