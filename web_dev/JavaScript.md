@@ -64,7 +64,7 @@
 - undefined 的类型(typeof)是 undefined
 - 在验证 null 时，一定要使用　=== ，因为 == 无法分别 null 和 undefined
 
-## Javascript 作用链域?
+## Javascript 作用域链
 - 全局函数无法查看局部函数的内部细节
 - 局部函数可以查看其上层的函数细节，直至全局细节
 
@@ -147,8 +147,8 @@ bound()
 
 ## 变量提升
 - var is partially hoisted
-- function keyword is fully are hoisted
-- let, const are not
+- function keyword is fully hoisted
+- let & const are **not** hoisted
 - avoid hositing if you can
 
 ## 为什么函数是一等公民
@@ -168,7 +168,7 @@ bound()
 
 ## 闭包
 - 闭包是指可以访问另一个函数作用域中变量的函数
-- 可以理解为父函数被销毁 的情况下，返回出的子函数的[[scope]]中仍然保留着父级的变量对象和作用域链，因此可以继续访问到父级的变量对象
+- 父函数被销毁的情况下，返回出的子函数的[[scope]]中仍保留着父级的变量对象和作用域链，因此可以继续访问到父级的变量对象
 - 利用闭包可以突破作用链域，将函数内部的变量和方法传到外部 (aka. revealing module pattern)
 - 闭包的特征：
   - 函数内再嵌套函数
@@ -190,7 +190,7 @@ var test = sayHi('xiaoming')
 test() // Hi! xiaoming
 ```
 - sayHi 函数执行完毕，但是其活动对象也不会被销毁，因为 test 函数仍然引用着 sayHi 函数中的变量 name
-- 但因为闭包引用着 sayHi 函数的变量name，导致name无法销毁.所以闭包使用过多，会占用较多的内存，这也是一个副作用。
+- 但因为name无法销毁.所以闭包使用过多，会占用较多的内存，这也是一个副作用。
 
 ## 自执行函数(IIFE) 是什么?
 - 声明一个函数, 然后马上调用它
@@ -560,20 +560,6 @@ generator.next()  // { value: 'ending', done: true }
 generator.next()  // { value: undefined, done: true }
 ```
 
-- 最优化: 圣杯模式
-```js
-var inherit = (function(c,p){
-  var F = function(){};
-  return function(c,p){
-    F.prototype = p.prototype;
-    c.prototype = new F();
-    c.uber = p.prototype;
-    c.prototype.constructor = c;
-  }
-})();
-```
-- ES6 的语法糖 class / extends
-
 ## 浏览器架构
 - 用户界面
 - 主进程
@@ -643,16 +629,17 @@ console.log('Received message ' + event.data);
 ## 判断是否是数组 Array 类型的方法
 ```js
 var arr = [];
-arr.constructor === Array;
-arr instanceof Array; // true
+Array.isArray(arr); // es5 (preferred)
+arr.constructor === Array; // true
+arr instanceof Array; // check if Array.prototype exists in arr's prototype chain
 Object.prototype.toString.call(arr) === "[object Array]"; // toString
-Array.isArray(arr); // es5
+
 ```
 
 ## 同源策略
-源 = URI + 主机名+ 端口<br>
-浏览器存在同源策略可防止 JavaScript 发起跨域请求<br>
-目的是防止页面上的恶意脚本访问另一个网页上的敏感数据
+源 = URI + 主机名+ 端口
+浏览器存在同源策略可防止 JavaScript 发起跨域请求
+目的是防止页面上的恶意脚本访问另一个网站/服务器上的敏感数据
 
 ## 跨域：规避同源策略
 1. jsonp ，允许 script 加载第三方资源
@@ -755,10 +742,7 @@ btn.onclick = function(){}
   - 不安全
   - 非常耗性能
 
-
-
 ## advanced console.log usage
-
 - assert variable value
 ```js
 let varMustBeTrue = false;
@@ -841,14 +825,8 @@ console.log('%c hello world')
 - 介绍下 Set、Map、WeakSet 和 WeakMap 的区别？
 - 介绍下深度优先遍历和广度优先遍历，如何实现？
 - 请分别用深度优先思想和广度优先思想实现一个拷贝函数
-- 简单讲解一下 http2 的多路复用
-- cookie 和 token 都存放在 header 中，为什么不会劫持 token？
-- Explain event delegation.
 - What's the difference between host objects and native objects?
 - Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 - Explain `Function.prototype.bind`.
 - What's the difference between feature detection, feature inference, and using the UA string?
-- Describe event bubbling.
-- Describe event capturing.
 - What's the difference between an "attribute" and a "property"?
-- Why you might want to create static class members?

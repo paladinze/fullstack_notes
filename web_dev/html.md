@@ -44,7 +44,7 @@ document.body.append(script); // (*)
 
 ## Doctype 作用？标准模式与兼容模式各有什么区别?
 
-- “<!DOCTYPE>”声明位于 HTML 文档中的第一行
+- “<!DOCTYPE html>”声明位于 HTML 文档中的第一行
 - 告知浏览器用什么文档标准解析这个文档
 - DOCTYPE 不存在或格式不正确会导致文档以兼容模式呈现。
 - 标准模式的排版 和 JS 运作模式都是以该浏览器支持的最高标准运行
@@ -158,20 +158,23 @@ document.body.append(script); // (*)
 - 从 unicode 到 utf-8 并不是直接的对应，而是要过一些算法和规则来转换。
 
 ## 事件冒泡
-
-- When an event happens on an element, it first runs the handlers on it, then all the way up on ancestors.
-- event.target: element that initiated the event
-- event.currentTarget: the current element with event handler
+- event bubbling: event bubbles up the dom tree, calling all the event handlers on the path
+- `this` (event.currentTarget): the current element with event handler
+- `event.target`: element that initiated the event
+- `event.stopPropagation()`: stop event bubbling
 
 ## 事件捕捉
-
+- event capturing: 
 - 3 phases of dom events
-  - Capturing phase – the event goes down to the element.
+  - Capturing phase – the event goes down to the element. <===
   - Target phase – the event reached the target element.
   - Bubbling phase – the event bubbles up from the element.
-- elem.addEventListener(..., true)
+- syntax: `element.addEventListener(..., true)`
 
 ## 事件代理
+- define event handler on the common parent
+- check if event.target is within the element of interest
+- handle the event
 
 ## Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 
