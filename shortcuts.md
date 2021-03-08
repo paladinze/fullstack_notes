@@ -61,16 +61,16 @@
   - ctrl + space
 - complete hinted action
   - option + enter
-- select all occurances of word
+- select all occurrences of word
   - cmd + F2
-- add thing in front of all selected lines
+- add the thing in front of all selected lines
   - shift + option + i
   - command + left
 - switch between projects
   - cmd + '`'
-- select next occuranc of word
+- select next occurrence of word
   - ctrl + G
-- remove redundent import
+- remove redundant import
   - ctrl + option + o
 - format file
   - option + cmd + L
@@ -88,6 +88,9 @@
   - shift + cmd + U
 - extend and shrink selection
   - option + up / option + down
+- inlining and extract
+  - inline: option command N
+  - extract: option command V
 
 
 ## iterm2

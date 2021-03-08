@@ -11,6 +11,13 @@
 - weakly-typed language, with a
 - non-blocking event loop
 
+## why is JavaScript Single-threaded
+- prevent race condition when modifying dom
+  - allows simpler design
+- good for I/O intensive tasks
+  - does not waste memory to wait for each thread
+- bad for CPU intensive task
+
 ## staically typed vs dynamically typed
 - statically typed
   - type associated with variable
@@ -69,17 +76,18 @@
 - 局部函数可以查看其上层的函数细节，直至全局细节
 
 ## 执行上下文 （execution context)
-- 函数调用时形成
-- 它包含 3 个部分
+- JS代码可见的变量、函数和this的集合
+- 在函数调用时有JS引擎创建
+- 它包含 3 个部分：
   - this 指向
-  - 变量对象(VO)：存储着该执行上下文中的所有 变量和函数声明(不包含函数表达式)
-    - 活动对象 (AO): 所处的 EC 为 active EC 的变量对象
-  - 作用域链 (词法作用域)
+  - 变量对象(variable object, VO)：存储着该执行上下文中的所有 变量和函数声明(不包含函数表达式)
+    - 如果EC为当前正在执行的EC，则称其VO为活动对象 (activation object，AO)
+  - 作用域链 (基于词法作用域)：当前的VO + 父级的作用域链
     - 声明提前: 一个声明在函数体内都是可见的
-- ec 分为 3 种类型
+- EC 分为 3 种类型
   - 全局执行上下文
   - 函数执行上下文
-  - eval 执行上下文
+  - eval执行上下文
 - 代码执行过程:
   - 创建 全局上下文 (global EC)
   - 全局EC逐行自上而下执行
@@ -101,7 +109,7 @@
 - 由 new 调用：绑定到新创建的对象
 - 由 call，apply，bind 调用：绑定到指定的对象
 - 函数作为对象里的方法被调用：函数内的`this`是调用该函数的对象
-- 箭头函数忽略以上规则，直接继承外层函数调用的 this 绑定
+- 箭头函数忽略以上规则，直接继承外层封闭执行上下文（函数调用或global）的 this 绑定
 - 在事件中，this 指向触发这个事件的对象
 
 ## bind, call, apply 的区别
@@ -220,6 +228,15 @@ var module = (function() {
 })();
 ```
 
+## 使用 let, var 和 const 有什么区别
+- var 没有 block scope，只有 function scope
+- let 和 const 有 block scope
+- var 会将声明语句“提升”到当前作用域的顶部，这意味着变量可以在声明之前使用
+  - 如果是函数，函数的声明和定义都会被提升
+- let 和 const 不会使变量提升，提前使用会报错
+- 用 var 重复声明不会报错，但 let 和 const 会。
+- let 和 const 的区别在于：let 允许多次赋值，而 const 只允许一次。
+
 ## 原型链是什么？
 - 只有函数有prototype 属性，指向它的原型对象
 - 所有的 JS 对象都有一个 __proto__ 属性，指向它父级的原型对象
@@ -232,15 +249,6 @@ const instance = new Object(); // 实例
 const prototype = instance.__proto__; // 原型
 const constructor = prototype.constructor; // 构造函数
 ```
-
-## 使用 let, var 和 const 有什么区别
-- var 没有 block scope，只有 function scope
-- let 和 const 有 block scope
-- var 会将声明语句“提升”到当前作用域的顶部，这意味着变量可以在声明之前使用
-  - 如果是函数，函数的声明和定义都会被提升
-- let 和 const 不会使变量提升，提前使用会报错
-- 用 var 重复声明不会报错，但 let 和 const 会。
-- let 和 const 的区别在于：let 允许多次赋值，而 const 只允许一次。
 
 ## 创建对象有几种方法
 
@@ -272,7 +280,7 @@ const obj = Object.create({ a: 1 });
 function _new(fn, ...args) {
   const obj = Object.create(fn.prototype);
   const newInstance = fn.apply(obj, args);
-  return newInstance instanceof Object ? ret : obj;
+  return newInstance instanceof Object ? newInstance : obj;
 }
 ```
 
@@ -287,7 +295,7 @@ function _new(fn, ...args) {
   - 真正深拷贝
     - JSON.parse(JSON.stringify())
 
-- 浅拷贝例子
+## 浅拷贝例子
 ```js
 let o1 = { a: 1 };
 let o2 = o1;
@@ -340,7 +348,7 @@ function deepCopy(obj) {
 - join: 通过指定连接符生成字符串
 - push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
 - unshift / shift: 头部推入和弹出，改变原数组，返回操作项
-- sort(fn) / reverse: 排序与反转，改变原数组
+- sort / reverse: 排序与反转，改变原数组
 - concat: 连接数组，不影响原数组， 浅拷贝
 - slice(start, end): 返回截断后的新数组，不改变原数组
 - splice(start, number, value...): 返回删除元素组成的数组，value 为插入项，改变原数组

@@ -5,20 +5,32 @@
 - 如果 script 元素引用了外部脚本，就下载该脚本再执行，否则就直接执行代码。
 - JavaScript 引擎执行完毕，控制权交还渲染引擎，恢复解析 HTML 网页。
 
-## 异步加载 JS 的方式有哪些？
+## 页面加载中的事件触发顺序
+- HTML fully loaded
+- DOM tree built
+- deferred script executed
+- [event] `document.DOMContentLoaded`: can lookup DOM nodes
+- all external resources (images, styles) loaded
+[event] `window.onload`: styles are applied, image sizes are known
 
+## 页面加载中的阻塞
+- non-deferred/non-async script waits for styles
+- DOMContentLoaded waits for script
+
+## 异步加载JS的方式有哪些？（防止阻塞页面渲染）
 - 将 script 标签放到 body 底部 (本质还是同步的)
-  - 缺点：必须先等待 html 加载
+  - 缺点：必须先等html加载完
 - defer:
-  - 异步加载 js，元素解析完成后才执行
-  - js 文件下载是平行的，但能保证 js 文件执行顺序
+  - 异步平行加载js
+  - DOM解析完成后才执行
+  - js文件之间的相对顺序能保证
+  - `DOMContentLoaded`会等待js文件加载完才触发
 - async:
-  - 异步加载 ks，但执行时会阻塞元素渲染
-  - js 文件下载是平行的，会在下载完成后立刻执行
-  - 每个 script 之间完全独立，不确保执行顺序
+  - 异步平行加载js，但执行时会阻塞元素渲染
+  - 下载完成后立刻执行
+  - 每个script之间完全独立，不确保执行顺序
   - 例子：google analytics
 - 动态创建 script，插入到 DOM 中
-
   - 插入 DOM 后开始加载
   - 默认和 “async” 等价
 
