@@ -4,7 +4,6 @@
 ## why stylesheet
 - seperation of concern
 - cacheable
-- don't bloat html
 
 ## syntax
 <selector> {
@@ -25,8 +24,8 @@
 
 
 ## select priorities
-- Importance > specific > source order
-- 继承的样式和直接指定的样式冲突时，直接指定的样式获胜
+- 权值 > 具体程度 > 代码先后
+- 指定的样式 > 继承的样式
 - 直接指定的样式发生冲突时，样式权值高者获胜
   - 选择器优先级： !important > inline > #id > .class > tag > \* > 继承 > 默认
   - 选择器 从右往左 解析
@@ -181,61 +180,52 @@
 - vw: 1% of viewport width
 
 ## 盒模型
-
 - 页面渲染 DOM 元素所采用的 布局模型
   - margin + border + padding + content
-- 可通过 box-sizing 进行设置。
 - 根据计算宽高的方法可分为：
-  - content-box (W3C 标准盒模型)
+  - box-sizing: content-box (W3C 标准盒模型)
     - 宽高指 content
-  - border-box (IE 盒模型)
+  - box-sizing: border-box (IE 盒模型)
     - 宽高指 border + padding + content
-- 正常模式下所有浏览器都是 W3C 盒子模型
+- 默认是 W3C 盒子模型
 
 ## BFC 是什么？
-
-- 一个独立的渲染区域，让处于 BFC 内部的元素与外部的元素相互隔离，使内外元素的定位不会相互影响。
-- 如果一个元素符合成为 BFC 的条件，该元素内部元素的布局和定位就和外部元素互不影响，是一个独立容器
+- 一个独立的渲染区域：让处于BFC内部的子元素与外部的元素隔离，使内外元素的定位不会相互影响
+- 有什么用
+  - 阻止元素被浮动元素覆盖
+  - 阻止margin折叠
+  - 阻止父级塌陷
+  - 自适应两栏布局
 - 形成 BFC 的条件
-
-  - position: absolute/fixed
-  - float：除 none 以外的值
+  - float：!== none
   - position：absolute/ fixed
-  - display 为以下其中之一的值 inline-blocks，table-cells，table-captions；
+  - display: flow-root, flex, inline-blocks，table-cells，table-captions
   - overflow !== visible
-
 - BFC 布局规则
-
-  - 内部的 Box 会在垂直方向，一个接一个地放置。
+  - 内部的Box会在垂直方向，一个接一个地放置
   - Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠
-  - 每个元素的 margin box 的左边， 与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
-  - BFC 的区域不会与 float box 重叠。
-  - BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+  - 每个子元素的左margin， 与包含块的左border相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此
+  - BFC 的区域不会与 float box 重叠
   - 计算 BFC 的高度时，浮动元素也参与计算
 
-- 有什么用
-  - 自适应两栏布局
-  - 可以阻止元素被浮动元素覆盖
-  - 阻止 margin 重叠
 
 ## 清除浮动
 
-- 方法 1：使用带 clearfix 的空元素
-  - 在浮动元素后使用一个空元素如<div class="clearfix"></div>，并在 CSS 中赋予{clear:both;}
-
+方法 1：使用带 clearfix 的空元素
+在浮动元素后使用一个空元素如<div class="clearfix"></div>
 ```css
 .clearfix {
   clear: both;
 }
 ```
 
-- 方法 2：使用 CSS 的:after 伪元素
-  - 给浮动元素的容器添加一个 clearfix 的 class，然后给这个 class 添加一个:after 伪元素实现元素末尾添加一个看不见的块元素（Block element）清理浮动。
+方法 2：使用 CSS 的:after 伪元素
+给浮动元素的容器加一个:after伪元素，通过看不见的块元素清理浮动
 
 ```css
 .row:after {
   content: "";
-  display: box;
+  display: block;
   clear: both;
 }
 ```
@@ -256,13 +246,14 @@
   - 在同一层叠上下文中，层叠等级才有意义
 
 ## 块级元素 vs 行内元素
-
 - 块级元素（block）
-  - 占据其父元素（容器）的整个空间
-  - 通常浏览器会在块级元素前后另起一个新行
+  - 占据其父元素的整个空间
+  - 独占一行
   - 例子：div，h1，p，ul
 - 行内元素（inline）
-  - 一个行内元素只占据它对应标签的边框所包含的空间
+  - 占据自身宽度空间
+  - 不可设置宽高
+  - margin和padding只在横向生效
   - 包含其自身及其他行内元素
   - 例子：span，a，input，button
 - 行内块元素（inline-block）
@@ -331,7 +322,7 @@
 
 ## 隐藏方案
 
-```
+```css
 { display: none; }  <= 导致页面重绘，不占用空间
 { visibility: hidden; } <= 不会导致页面重绘，仍占用空间
 { height: 0; overflow: hidden; }

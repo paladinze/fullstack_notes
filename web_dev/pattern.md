@@ -10,6 +10,18 @@
 - Prototype Pattern
 - Observer Design Pattern
 
+## SOLID principles
+- Single responsibility principle
+	- do one thing and do it well
+- Open–closed principle
+	- extensible but cannot directly modify internal state from outside
+- Liskov substitution principle
+	- objects can be safely replaced with its subtype
+- Interface segregation principle
+	- don't create general-purpose interface
+- Dependency inversion principle
+	- depend upon abstractions, not concretions
+
 ## 使用 Ajax 的优缺点分别是什么
 
 **优点**

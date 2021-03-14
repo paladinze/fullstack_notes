@@ -159,7 +159,6 @@ document.body.append(script); // (*)
   - scrollTo()
 
 ## Ascii、GBK、UTF、Unicode
-
 - Ascii（1 个字节）
 - GBK 是国内的编码标准（2 个字节）
 - Unicode 是国际编码标准（2 个字节）
@@ -188,6 +187,6 @@ document.body.append(script); // (*)
 - check if event.target is within the element of interest
 - handle the event
 
-## Consider HTML5 as an open web platform. What are the building blocks of HTML5?
-
-## Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+## requestAnimationFrame vs setTimeout
+- requestAnimationFrame execute in sync with monitor refresh
+- requestAnimationFrame doesn't wait for sync task in the main thread

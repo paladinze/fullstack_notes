@@ -2,14 +2,17 @@
 
 ## OSI 模型
 
-- 应用层: HTTP, FTP, POP3, SMTP, and SNMP
-- 传输层: host 之间通讯
+- 应用层（application）: 为应用程序提供网络服务
+  - HTTP, FTP, POP3, SMTP, and SNMP
+- 表示层（presentation）：数据压缩、转换和加密
+- 会话层（session）：管理会话
+  - TLS，LDAP
+- 传输层（tranport）: host 之间通讯
   - TCP, UDP, HTTPS 安全机制
 - 网络层(ip): 连接网络
   - 路由器, IP, ICMP
-- 数据链路层：连接 host
-  - 交换机, ethernet, arp
-- 物理层
+- 数据链路层（data link）：交换机, ethernet, arp
+- 物理层（physical）：物理线路
 
 ## HTTP 状态码
 

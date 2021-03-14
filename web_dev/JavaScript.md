@@ -750,7 +750,14 @@ btn.onclick = function(){}
   - 不安全
   - 非常耗性能
 
-## advanced console.log usage
+## native object vs host object
+- native objects: objects defined & provided by JS
+  - Date, Math, parseInt, eval, string methods, array methods
+- host objects: objects provided by the host envrionement 
+  - hosts: browser/node
+  - window, document, location, history, XMLHttpRequest, setTimeout, querySelectorAll
+
+## advanced console.log
 - assert variable value
 ```js
 let varMustBeTrue = false;
@@ -782,6 +789,16 @@ console.groupCollapesed('shit')
 ```js
 console.log('%c hello world')
 ```
+
+## 性能优化
+- lazy load unimportant script
+  - coverage analysis: identify unused code (using browser devtools)
+  - code splitting: lazy load unimportant script (`React.lazy`)
+- cache expansive calculations
+  - `React.useMemo`
+- virtual scroll for large list
+- prevent function re-init
+
 
 ## History
 - 1990 Tim Berners-Lee
@@ -828,13 +845,3 @@ console.log('%c hello world')
   - babel
   - typescript
   - react
-
-# more questions
-- 介绍下 Set、Map、WeakSet 和 WeakMap 的区别？
-- 介绍下深度优先遍历和广度优先遍历，如何实现？
-- 请分别用深度优先思想和广度优先思想实现一个拷贝函数
-- What's the difference between host objects and native objects?
-- Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
-- Explain `Function.prototype.bind`.
-- What's the difference between feature detection, feature inference, and using the UA string?
-- What's the difference between an "attribute" and a "property"?

@@ -10,22 +10,22 @@
 - rendering: 操作 dom 节点更新
 
 ## 什么是 Virtual DOM？
-- 根据 DOM 的树状结构生成的JS表达
+- 根据DOM结构生成的内存表示
 
 ## React 中 key 的作用
 - key 作为元素的唯一标识用来表示元素的唯一性
-- 帮助跟踪 virtualDom 中哪些元素被改变
+- 帮助跟踪virtualDom中哪些元素被改变
+- 在渲染列表数据时位置item的状态
 
 ## 当组件的 setState 函数被调用之后，发生了什么？
 - 把传递给 setState 的参数对象合并到组件原先的 state
 - reconcile and render
 
 ## react 中 refs 的作用
-- 访问 DOM 元素实例的handle (本质是一个函数）
+- 访问DOM元素实例的handle
 
 ## 什么时候用 Class component，什么时候用 Functional component？
-- Class component：用到了 state，生命周期函数
-- Functional component：其它情况
+- 基本所有情况用 Functional component
 
 ## React 生命周期
 ```js
@@ -133,7 +133,7 @@ componentWillUnmount()
 - cleanup
   - returns a function
   - cleanup function run everytime effects is triggered again
-- replace: case in which componentDidMount + componentDidUpdate needs same behavior
+- replaces: componentDidMount + componentDidUpdate
   ```js
   useEffect(() => {
       console.log('I just mounted!');
