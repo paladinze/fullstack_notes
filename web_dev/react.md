@@ -103,7 +103,6 @@ componentWillUnmount()
 ## react hook
 - a way to reuse stateful logic, not state
 - each hook call has completely isolated state
-- hook state is maintained between re-renders
 - pros
   - seperate concerns: allows organizing effects around features, not life cycles
   - only call Hooks from React function components
@@ -114,7 +113,13 @@ componentWillUnmount()
 - only call hooks from functional components or custom hooks
   - ensure all stateful logic in a component is clearly visible
 
-## useState hook
+## react hook vs class
+- redunce cost of class instantiation and event binding
+- reduce component nesting (of HOC, context, render props)
+  - simpler tree -> better performance
+
+
+## `useState` hook
 - give state to functional component
 - preserve values between function calls
 - syntax
@@ -123,26 +128,28 @@ componentWillUnmount()
       - state
       - setState method
 
-## useEffect hook
-- runs the effects after every render by default
-- have access to its props and state
-- syntax
-  - function
-  - optional 2nd argument (array of values)
-    - tells react skipp applying an effect is all values of concern hasn't changed
-- cleanup
-  - returns a function
-  - cleanup function run everytime effects is triggered again
+## `useEffect` hook
+- use case
+  - scheule side effects: mutations, timers, logging
+- timing
+  - fire after every render
+- run only on dependency change
+  - use 2nd argument to sepecify the dependency list
+  - use empty array, if only only want run once, and cleanup during unmount
+- cleanup function
+  - the function returned in the hook will be used for cleanup
+  - runs before component unmount
+  - runs before effect is fired again
 - replaces: componentDidMount + componentDidUpdate
   ```js
   useEffect(() => {
-      console.log('I just mounted!');
+      console.log('after every rerender!');
   })
   ```
 - replace: componentDidMount
   ```js
   useEffect(() => {
-      console.log('I just mounted!');
+      console.log('mounted!');
   }, [])
   ```
 - replace: componentDidUpdate
@@ -154,8 +161,106 @@ componentWillUnmount()
 - replace: componentWillUnmount
   ```js
   useEffect(() => {
-      return () => console.log('I am unmounting');
+      return () => console.log('unmounting');
   }, [])
+  ```
+
+## `useLayoutEffect` hook
+- use case
+  - read DOM layout
+  - rerender synchronously
+- timing
+  - fire before paint
+  - updates flushed synchronously
+
+## `useMemo` hook
+- use case
+  - performance optimization through memoization
+- timing
+  - fire during render
+- syntax
+  ```js
+  const memoizedValue = useMemo(() => doComplicatedStuff(a, b), [a, b]);
+  ```
+
+## `useCallback` hook
+- make function declarations stable inside component
+
+## `useRef` hook
+- a container to persist values across component's lifecycle
+- use case
+  - directly access Dom element
+  - persist any object across rerender
+- syntax
+  ```js
+  const refContainer = useRef(initialValue);
+  const value = refContainer.current;
+  ```
+
+## `useDebugValue` hook
+- dsiplay a label for the custom hook in devtool
+  ```js
+  function useFriendStatus(friendID) {
+    const [isOnline, setIsOnline] = useState(null);
+
+    useDebugValue(isOnline ? 'Online' : 'Offline');
+    return isOnline;
+  }
+  ```
+
+## Context 
+- a way to pass data to any part of the subtree
+- three parts of a context
+  - creation: create the context
+    - need to specify a default value: used when no provider in found in the lookup
+  - provider: wrap top of the tree with context's provider
+  - consumer: consume the context in child components
+    - `useContext(theContext)`: read & subscribe to changes
+    - `Context.Consumer`: consume multiple contexts
+    - `Class.contextType`: consume a single context (used in class only)
+- rerender mechanism
+  - rerender whenever Provider's value changes
+  - ignore `shouldComponentUpdate` logic
+  - `Object.is` comparison (compare by refence)
+
+## update state from deep nested child
+pass `dispatch` (from `useReducer`) down using `context`
+- `context` allows passing data to deeply nested child
+- `dispatch` is stable across rerender (no need to use `useCallback`)
+
+```js
+
+// parent
+const TodosDispatch = React.createContext(null);
+function TodosApp() {
+  const [todos, dispatch] = useReducer(todosReducer);
+  return (
+    <TodosDispatch.Provider value={dispatch}>
+      <DeepTree todos={todos} />
+    </TodosDispatch.Provider>
+  );
+}
+
+// deep in the tree
+function DeepChild(props) {
+  const dispatch = useContext(TodosDispatch);
+  function handleClick() {
+    dispatch({ type: 'add', text: 'hello' });
+  }
+
+  return (
+    <button onClick={handleClick}>Add todo</button>
+  );
+}
+```
+
+## `React.useMemo`
+- avoid component rerendering if prop doesn't change
+- similar to `shouldComponentUpdate`
+  - compare props only
+- syntax
+  ```js
+  const Button = React.memo((props) => {});
   ```
 
 ## Custom hooks
