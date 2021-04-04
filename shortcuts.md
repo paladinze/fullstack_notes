@@ -123,7 +123,7 @@
 - navigate tab: J/K
 - scroll up/down: j/k
 - forward/back in history: L/H
-- show links on the page
+- show links on the page: f
 - open url: O
 - copy current url: yy
 
@@ -131,3 +131,27 @@
 ## curl
 - for loop download
   - for i in {1..110}; do curl -O https://martinfowler.com/photos/$i.jpg &; done
+
+
+## Alfred
+- text expansion
+	- pref -> features -> check Automatically expand snippets
+- find/open file
+	- find <file_name>
+	- open <file_name>
+- close app
+	- quit <app_name>
+	- forcequit <app_name>
+	- quitall <app_name>
+- batch process files
+	- add file to buffer: option + down
+	- remove file from buffer: option + left
+	- process buffer: option + right
+- workflows
+	- encode: encode
+	- github: gh
+	- douban: dbm
+	- browser bookmark: google query
+  - dash
+  - colors
+  - network tools
