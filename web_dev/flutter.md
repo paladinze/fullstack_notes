@@ -2,7 +2,7 @@
 - a cross platform
 - strongly typed
 - mostly OOP
-- app framework
+- hybrid app framework
 
 ## Architecture
 - layers
@@ -13,33 +13,37 @@
     - JIT mode: patch code to dart VM dynamically
     - AOT mode: compiles to assembly using custom protocol
 
-## Why 
+## The Good 
 - dev experience
+    - same code base for multiple platforms
     - fast iteration: stateful hot reload
 - performance
     - directly compiled to machine code
-    - does not use native ui primitive
+    - does not rely on native ui primitive
         - no need for bridging (composite the entire screen at once)
         - completely decoupled from OS native behaviour
+    - fluid animation
 - declarative UI
     - state driven
     - framework handles rerender
+- design
+    - consistent cross-platform design & behaviours
 
-## Why Not
-
-### The Ugly
-- hard to load code dynamically (due to AOT)
+## The Ugly
+- hot patch
+    - hard to patch code dynamically (due to AOT)
 - widget
     - Tab is hardcoding the height
     - `popup`, `dialogs`, `modal` depends on route
     - localization requires context
-
 - testing
     - widget testing is awkward
         - pumpAndSettle doesn't always work (animation may never settle)
     - some test require random amount of pumps
 
-### The Bad
+## The Bad
+- native + flutter support is not mature yet
+- hard to do fine grained widget level error handling
 - Cupertino Switch color cannot be controlled through themes
 - loading image assets
 	- can not load nested directories
@@ -48,7 +52,6 @@
     - cannot connect with Flutter inspector 
 	    - must disable devtools in the flutter section of the editor
 - no storybook to showcase design
-
 
 
 ## UI (the three widget trees)
@@ -511,10 +514,6 @@
 - firebase_core
 - firebase_messaging
 - firebase dynamic link
-
-
-
-
 
 ## Android vs iOS behavior difference
 - push a new page
