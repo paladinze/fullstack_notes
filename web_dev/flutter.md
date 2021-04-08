@@ -23,11 +23,16 @@
         - no need for bridging (composite the entire screen at once)
         - completely decoupled from OS native behaviour
     - fluid animation
+    - efficient layout & paint
+    	- split-phase: layout + size 
+        - done in one-pass: down, then up
+        - complexity: O(n)
 - declarative UI
     - state driven
     - framework handles rerender
 - design
     - consistent cross-platform design & behaviours
+    - more customizable
 
 ## The Ugly
 - hot patch
@@ -52,7 +57,31 @@
     - cannot connect with Flutter inspector 
 	    - must disable devtools in the flutter section of the editor
 - no storybook to showcase design
+- limitations of hot reload
+    - changes made out side `build()` will not be applied
+    - newly added static field will not be applied
+    - change to widget root will not be applied
+    - changes in lifecycle methods will not be applied
 
+## Why Dart as the programming language
+- JIT: fast dev cycles
+- AOT: good performance in production (compile to ARM code)
+    - high performance
+    - low latency
+- tree shaking compiler
+- Dart is optimized for Flutter
+    - support AOT because of Flutter
+    - Dart VM optmize for latency (instead of throughput) for Flutter
+- OOP
+    - industry has mature solution
+- strong types
+- fast memory allocations
+    - functional-style flow favors small short-lived memory allocations
+    - generational garbage collection
+- easy to learn (like JS & Java)
+
+## Dart Limitations
+- no function overloading
 
 ## UI (the three widget trees)
 - UI consists ofthree trees: Widgets, Elements and RenderObjects
@@ -412,6 +441,16 @@
 	- primary: text, icons, overlay, pressed colors, 
 	- onSurface: **disabled** text, icon color
     - feedback: backgroundColor
+- Device_info
+    - get OS and device model info through system APIs
+- PhysicalModel
+    - create shadow underneath a box
+    - takes no space
+- Async 
+    - StreamGroup: merge multiple streams into one
+    - AsyncCache: give cached result within a time frame
+    - StreamQueue: turn stream results into synchronous list of futures
+
 
 ## packages
 
