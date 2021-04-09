@@ -33,6 +33,9 @@
 - design
     - consistent cross-platform design & behaviours
     - more customizable
+    - use simple constraints-based layout system (compare to iOS)
+        - min/max width and height
+
 
 ## The Ugly
 - hot patch
@@ -168,6 +171,16 @@
         - subscribe to changes in provider
         - `Consumer`
 
+## The rendering pipeline
+- User Input
+- Animation	
+- Build
+- layout
+- paint
+- composite
+- rasterize
+- GPU
+
 ## MVVM architecture
 - view: show things
     - the UI widgets
@@ -239,9 +252,33 @@
 - MediaQueryData
 - OrientationBuilder`
 
+## performance optimization
+- shader compilation jank
+	- use sksl warmup
+
+## performance monitoring
+- performance issue should be debugged in profile mode
+- devtool
+    - performance overlay
+    - widget rebuild tracker
+    - memory tab
+- enable skia-level tracing
+    - `flutter run --profile --trace-skia`
+
+## Threading model
+- platform thread: native plugin code
+- UI thread
+	- Dart code + Flutter framework code
+	creates a layer tree: a lightweight object containing painting commands - (device-independent)
+- raster thread
+	- skia engine
+	- prepare data for GPU
+- I/O thread
+	- expensive I/O tasks
+
 ## widgets overview
 - safearea
-	- adapt stange physical device shape
+    - adapt stange physical device shape
 	- use MediaQuery behind the scenes
 - expanded
 	- make child take all available space
@@ -487,11 +524,13 @@
 - system_proxy: easier to grab network request
 
 ### local storage
+- sqflite
 - shared_preferences
 - flutter_secure_storage (encryted)
 - hive (encrypted)
 
 ### utils
+- rxdart
 - json_annotation: JSON serialization/deserialization
 - json_serializable: generate class to convert class to JSON
 - flutter_launcher_icons: simplify updating app's launcher icons
@@ -503,8 +542,11 @@
 - clock: wrapper for clock api
 - fake_async: test util for async functions
 - email_validator: validate email
+- built_value
     
 ### UI widgets
+- flutter_slidable
+- animated_text_kit
 - dots_indicator: dot-based progress bar
 - month_picker_dialog: md style date picker
     - loading_overlay: overlay for loading indicators
@@ -525,6 +567,7 @@
 ### assets
 - cupertino_icons
 - google_fonts: load font by http
+- font_awesome_flutter
 
 ### analytics
 - flutter_segment
@@ -541,9 +584,18 @@
 
 ### Notifications
 - notification_permissions: check notification permission
+- flutter_local_notifications
 
 ### Hardware
-- detect phone shake
+- sensors
+- battery
+- geolocator
+- device_info
+- just_audio
+- package_info
+- location
+- path_provider	
+- share
 
 ### lint
 - offical
