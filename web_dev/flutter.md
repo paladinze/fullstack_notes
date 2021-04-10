@@ -181,6 +181,18 @@
 - rasterize
 - GPU
 
+### From Widget to Image
+- use Flutter's golden test mechanism as an example
+- steps
+    - rendering
+        - get the renderObject's first parent renderObject that is a RepaintBoundary
+        - get the widget's renderObject: finder -> element -> renderObject
+        - get offsetLayer from renderObject
+        - convert offsetLayer to scene
+    - composite & rasterize
+        - scene to image (native call)
+
+
 ## MVVM architecture
 - view: show things
     - the UI widgets
@@ -251,6 +263,20 @@
 - MediaQuery
 - MediaQueryData
 - OrientationBuilder`
+
+
+## animations
+- drawing based animations:
+    - generate using 3rd party tools
+    - import into Flutter
+- code-based animations: use Flutter
+    - implicit
+        - tweak existing widgets (`AnimatedContainer`)
+    - explicit
+        - can control animation timing (`AnimationController`)
+        - must manage lifecycle manually
+
+
 
 ## performance optimization
 - shader compilation jank
