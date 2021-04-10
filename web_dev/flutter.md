@@ -271,11 +271,24 @@
     - import into Flutter
 - code-based animations: use Flutter
     - implicit
-        - tweak existing widgets (`AnimatedContainer`)
+        - tweak existing widgets 
+        - built-in widgets
+            - `AnimatedContainer`
+            - other `AnimatedXxx`
+        - TweenAnimationBuilder
+            - custom implicit animation
     - explicit
         - can control animation timing (`AnimationController`)
         - must manage lifecycle manually
-
+        - built-in widgets
+            - `XxxTransition`
+            - AnimatedWidget
+            - AnimatedBuilder
+            - CustomPainter (use only for extreme performance optimization)
+        - use cases: 
+            - repeating animations
+            - discountinous animations
+            - animations involing multiple widgets
 
 
 ## performance optimization
