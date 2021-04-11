@@ -91,7 +91,11 @@
 - inlining and extract
   - inline: option command N
   - extract: option command V
-
+  - view run logs: cmd + 4
+  - view terminal: opt + F12
+  - view class hierachy: ctrl h
+  - view class structure: cmd + 7
+  - preview constructor: cmd + Y
 
 ## iterm2
 - clear screen: cmd + R
@@ -155,3 +159,14 @@
   - dash
   - colors
   - network tools
+
+## xcode
+- `cmd + j`
+- ios simulator record video
+	- `xcrun simctl io booted recordVideo <output_file>.mp4`
+
+## Flutter
+- create StatefulWidget: stful
+- create StatelessWidget: stless
+- hot reload: cmd + \
+- hot restart: cmd + shift + \

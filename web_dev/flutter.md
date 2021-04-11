@@ -193,6 +193,78 @@
         - scene to image (native call)
 
 
+## Navigation
+
+
+### Annoynoumous Route
+```dart
+onPressed: () {
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+        return DetailScreen();
+        }),
+    );
+}
+```
+
+### Named Route
+
+define route map
+```dart
+return MaterialApp(
+    routes: {
+        '/': (context) => HomeScreen(),
+        '/details': (context) => DetailScreen(),
+    },
+);
+```
+
+push route using name
+```dart
+onPressed: () {
+    Navigator.pushNamed(
+        context,
+        '/details',
+    );
+}
+```
+
+
+### generative route
+
+```dart
+onGenerateRoute: (settings) {
+  // Handle '/'
+  if (settings.name == '/') {
+    return MaterialPageRoute(builder: (context) => HomeScreen());
+  }
+  
+  // Handle '/details/:id'
+  var uri = Uri.parse(settings.name);
+  if (uri.pathSegments.length == 2 &&
+      uri.pathSegments.first == 'details') {
+    var id = uri.pathSegments[1];
+    return MaterialPageRoute(builder: (context) => DetailScreen(id: id));
+  }
+  
+  return MaterialPageRoute(builder: (context) => UnknownScreen());
+},
+```
+
+### declarative routing (Navigator 2.0 API)
+- use app state to control screens
+- page: immutable objects
+- router: list of pages displayed by the Navigator
+- RouteInformationProvider: provide route info
+- RouteInformationParser: parse route info into custom data type
+- RouterDelegate:
+    - defines how to receive state change
+    - how to respond to state change
+    - listen to RouteInformationParser
+    - build Navaigator with current pages
+- BackButtonDispatcher: reports back button press to Router
+
 ## MVVM architecture
 - view: show things
     - the UI widgets
@@ -203,6 +275,16 @@
 - model: 
     - service
     - store
+
+## Flutter lifecycle
+- initState: (called before render)
+    - must not call setState (as the widget hasn't been mounted)
+	- react: didMount (called after render)
+- didUpdateWidget (called before render)
+	- react: didUpdate (called after render)
+- didChangeDependencie 
+	- react: willReceiveProps
+- dispose (willUnmount)
 
 ## Error handling
 - runZoneGuarded
