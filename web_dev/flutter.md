@@ -265,6 +265,16 @@ onGenerateRoute: (settings) {
     - build Navaigator with current pages
 - BackButtonDispatcher: reports back button press to Router
 
+## Flutter lifecycle
+- initState: (called before render)
+    - must not call setState (as the widget hasn't been mounted)
+	- react: didMount (called after render)
+- didUpdateWidget (called before render)
+	- react: didUpdate (called after render)
+- didChangeDependencie 
+	- react: willReceiveProps
+- dispose (willUnmount)
+
 ## MVVM architecture
 - view: show things
     - the UI widgets
@@ -276,15 +286,130 @@ onGenerateRoute: (settings) {
     - service
     - store
 
-## Flutter lifecycle
-- initState: (called before render)
-    - must not call setState (as the widget hasn't been mounted)
-	- react: didMount (called after render)
-- didUpdateWidget (called before render)
-	- react: didUpdate (called after render)
-- didChangeDependencie 
-	- react: willReceiveProps
-- dispose (willUnmount)
+
+## BLOC Architecture
+
+### Flutter Bloc Integration
+- use provider underneath
+- code constructs
+    - Bloc: map events to streams
+        - from view: receive events
+            - act as **sink**: receive value over time
+        - for view: 
+            - act as **stream**: yeild multiple values over time
+            - map events to states (stream)
+            - request data
+    - BlocBuilder: consumes bloc and returns a widget
+    - BlocProvider: provide a bloc instance to the subtree
+
+### The three layers of Bloc
+- presentation
+- business logic
+- Data
+	- data provider
+	- repository
+
+### data provider layer
+- provides raw data
+- contains CRUD operations
+
+```dart
+class DataProvider {
+    Future<RawData> readData() async {
+        // Read from DB or make network request etc...
+    }
+}
+```
+
+### data repository layer
+- wrapper of data provider(s)
+- talks to the bloc layer
+
+```dart
+class Repository {
+    final DataProviderA dataProviderA;
+    final DataProviderB dataProviderB;
+
+    Future<Data> getAllDataThatMeetsRequirements() async {
+        final RawDataA dataSetA = await dataProviderA.readData();
+        final RawDataB dataSetB = await dataProviderB.readData();
+        return _filterData(dataSetA, dataSetB);
+    }
+}
+```
+
+### BLOC layer
+- full name: Bussiness Logic component
+- stores business logic
+- receives event from UI
+- retrieve data from data provider to build state
+- provide state (as Stream) for UI
+- an interface built around Dart Stream
+- everything is a stream of events
+	- widgets submit events
+	- other widgets will respond
+	- BLoC sits in the middle, managing the conversation
+	- dart has default support for working with syntaxs
+
+```dart
+class BusinessLogicComponent extends Bloc<MyEvent, MyState> {
+    final Repository repository;
+
+    Stream mapEventToState(event) async* {
+        if (event is AppStarted) {
+            try {
+                final data = await repository.getAllDataThatMeetsRequirements();
+                yield Success(data);
+            } catch (error) {
+                yield Failure(error);
+            }
+        }
+    }
+}
+```
+
+### Bloc to Bloc communication
+- every block contains a state stream
+- block subscribes to state in another block
+
+```dart
+class MyBloc extends Bloc {
+  final OtherBloc otherBloc;
+  StreamSubscription otherBlocSubscription;
+
+  MyBloc(this.otherBloc) {
+    otherBlocSubscription = otherBloc.listen((state) {
+        // React to state changes here.
+        // Add events here to trigger changes in MyBloc.
+    });
+  }
+
+  @override
+  Future<void> close() {
+    otherBlocSubscription.cancel();
+    return super.close();
+  }
+}
+```
+
+### presentation layer
+- render based on bloc states
+- handle user input and lifecycle events
+
+```dart
+class PresentationComponent {
+    final Bloc bloc;
+
+    PresentationComponent() {
+        bloc.add(AppStarted());
+    }
+
+    build() {
+        // render UI based on bloc state
+    }
+}
+```
+
 
 ## Error handling
 - runZoneGuarded
@@ -748,3 +873,6 @@ onGenerateRoute: (settings) {
     - android: on field select -> vibrate and 'buzz' sound
     - ios: scrolling through picker items -> light impact sound
 
+## Questions
+- nullsafety
+- why and how to use isolate
