@@ -2,14 +2,14 @@
 
 ## file navigation
 - Remove file
-	- rm -f to force remove a file
-	- rm -rf to force remove the whole directory
-	- rm -rf * to delete the whole system (in administrator mode)
+	- remove a file: `rm -f`
+	- remove direcotry: `rm -rf`
+	- remove everything: `rm -rf *`
 
 - List file
-	- ls (simple table format)
-	- ls -lrt (longlist format with modification time sorted)
-	- ls -a (show hidden files, files start with .)
+	- list files: `ls`
+	- ordered list: `ls -lrt`
+	- show hidden files: `ls -a`
 	
 - find and delete file
 	- find ./ -name "*.js" -type f -delete

@@ -1,13 +1,11 @@
 
 free market is self-organizing
-resources are used to do what they mean to do
 least amount of resources produce most amount of goods
 
 ## features
 - Self-interest			
-- Incentives
 - Market Prices and Quantities
-- Institutions
+- prerequisite
 	- private property
 	- freedom of contract
 	- rule of law	

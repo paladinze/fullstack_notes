@@ -4,15 +4,14 @@
 ## set mac system preferences (sp)
 - change F1-F12 to function keys
 	- sp => keyboard => Use F1, F2, etc. keys as standard function keys
+- show date in menu bar
+	- SP > Date & time > show date
 - dictionary
 	- SP => trackpad => lookup data - detectors => tap with three fingers
 - enable readout selected text aloud
 	- SP => accessibility => speech
-- show date in menu bar
-	- SP > Date & time > show date
 - change mouse speed and key speed
 	- SP > keyboard > drag everything to the right
-- dock menu position: left
 
 ## IDE & editors
 - visual studio code (general purpose)
@@ -20,7 +19,9 @@
   - path intellisense: filename autocomplete
   - prettier: formatter
 - intellij-idea
-  - java / js
+  - java
+  - js
+  - flutter
 
 ## terminal
 - iterm2
@@ -35,7 +36,7 @@
 
 ## package manager
 - mac packages: homebrew
-- node version manager: nvm or n
+- node version manager: nvm
 
 ## browsers
 - chrome
@@ -47,7 +48,10 @@
 - nutstore
 
 ## CLI tools
-- display folder strucutre in cli: tree
+- display folder strucutre in cli: 
+  - tree
+- rerun tasks
+  - watch
 - image compression cli tools
   - pngquant
   - jpegoptim
@@ -72,7 +76,6 @@
 - 3D modeling: blender
 - design:
   - figma
-  - zeplin
 
 ## backend dev
 - install java
@@ -88,7 +91,7 @@
 ## shortcuts
 - display cheatsheet: cheatsheet
 - keyboard customizer: Karabiner
-	- Tab+jkhl: 上下左右
+	- Tab+jkhl: arrow keys
 	- Tab+m/,.: Home End PgUP PgDown
 
 ## workflow automation

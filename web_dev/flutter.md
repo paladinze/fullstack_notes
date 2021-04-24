@@ -733,7 +733,8 @@ class PresentationComponent {
     - StreamGroup: merge multiple streams into one
     - AsyncCache: give cached result within a time frame
     - StreamQueue: turn stream results into synchronous list of futures
-
+- Scrollbar
+    - show scroll position and scroll track for list view
 
 ## packages
 

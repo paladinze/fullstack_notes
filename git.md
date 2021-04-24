@@ -146,9 +146,9 @@
 		- tagging message
 		- `git tag -a v1.4 -m "tag message"`
 - list tags
-	- git tag -l
+	- `git tag -l`
 - show tag details
-	- git cat-file tag <tagname>
+	- `git cat-file tag <tagname>`
 - push tags
 	- push single tag: `git push origin <tag_name>`
 	- push tags: `git push origin --tags`
